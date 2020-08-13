@@ -8,11 +8,11 @@ declare -a OPTIONS=(
 
 # create essential files and fix permission
 mkdir -p /var/atlas-probe/status
-chown -R atlas:atlas /var/atlas-probe/status
+chown -R atlas:users /var/atlas-probe/status
 mkdir -p /var/atlas-probe/etc
-chown -R atlas:atlas /var/atlas-probe/etc
+chown -R atlas:users /var/atlas-probe/etc
 mkdir -p /var/atlas-probe/state
-chown -R atlas:atlas /var/atlas-probe/state
+chown -R atlas:users /var/atlas-probe/state
 echo "" > "${CONFIG_FILE}"
 
 # set probe configuration
@@ -23,5 +23,5 @@ for OPT in "${OPTIONS[@]}"; do
 	fi
 done
 
-exec gosu atlas:atlas "$@"
+exec gosu atlas:users "$@"
 
