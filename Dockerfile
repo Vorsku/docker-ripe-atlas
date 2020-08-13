@@ -20,8 +20,8 @@ ARG DEBIAN_FRONTEND=noninteractive
 
 COPY --from=builder /root/atlasswprobe-*.deb /tmp
 
-ARG ATLAS_UID=101
-ARG ATLAS_GID=999
+ARG ATLAS_UID=1000
+ARG ATLAS_GID=100
 RUN ln -s /bin/true /bin/systemctl \
 	&& adduser --system --uid $ATLAS_UID atlas \
 	&& groupadd --force --system --gid $ATLAS_GID atlas \
